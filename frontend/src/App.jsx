@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import CreateNotePage from './pages/CreateNotePage';
 import NoteDetailPage from './pages/NoteDetailPage';
 import EditNotePage from './pages/EditNotePage';
+import Dashboard from './pages/Dashboard'; // 👈 AJOUT
 
 // Thème personnalisé
 const theme = createTheme({
@@ -55,7 +56,7 @@ const theme = createTheme({
   },
 });
 
-// LE COMPOSANT PRINCIPAL DOIT ÊTRE EXPORTÉ PAR DÉFAUT
+// LE COMPOSANT PRINCIPAL
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -67,6 +68,11 @@ function App() {
             <Route path="/create" element={<CreateNotePage />} />
             <Route path="/note/:id" element={<NoteDetailPage />} />
             <Route path="/edit/:id" element={<EditNotePage />} />
+
+            {/* 🔥 DASHBOARD BI */}
+            <Route path="/dashboard" element={<Dashboard />} />
+
+            {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Box>
@@ -75,5 +81,4 @@ function App() {
   );
 }
 
-// CETTE LIGNE EST CRITIQUE : export default
 export default App;
